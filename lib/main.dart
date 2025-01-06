@@ -33,6 +33,22 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
+  //overide init state
+  @override
+  void initState() {
+    super.initState();
+
+    print("Cek : Masuk Init State");
+
+    //change _counter value to 5 after 2 seconds
+    Future.delayed(const Duration(seconds: 2), () {
+      setState(() {
+        _counter = 5;
+        print("Cek : Counter value change to 5");
+      });
+    });
+  }
+
   void _incrementCounter() {
     setState(() {
       _counter++;
